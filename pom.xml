@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>pdf-js</artifactId>
-    <version>0.5.6-SNAPSHOT</version>
+    <version>0.8.0-57e896d</version>
     <name>PDF.JS</name>
     <description>WebJar for PDF.JS</description>
     <url>http://webjars.org</url>
@@ -41,14 +41,14 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>0.5.5</upstreamVersion>
-        <sourceUrl>https://github.com/mozilla/pdf.js/archive</sourceUrl>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
+        <upstreamVersion>57e896d</upstreamVersion>
+        <sourceUrl>https://github.com/mozilla/pdf.js/tarball</sourceUrl>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/0.8.0-${upstreamVersion}</destDir>
     </properties>
 
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>wagon-maven-plugin</artifactId>
                 <version>1.0-beta-4</version>
@@ -58,12 +58,12 @@
                         <goals><goal>download-single</goal></goals>
                         <configuration>
                             <url>${sourceUrl}</url>
-                            <fromFile>v${upstreamVersion}.zip</fromFile>
-                            <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
+                            <fromFile>${upstreamVersion}</fromFile>
+                            <toFile>${project.build.directory}/${project.artifactId}.tar.gz</toFile>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
 
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
@@ -75,10 +75,13 @@
                         <configuration>
                             <target>
                                 <echo message="unzip archive" />
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
+                                <gunzip src="${project.build.directory}/pdf-js.tar.gz" />
+                                <untar src="${project.build.directory}/pdf-js.tar" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/pdf.js-${upstreamVersion}" />
+                                    <fileset dir="${project.build.directory}/mozilla-pdf.js-${upstreamVersion}">
+                                        <exclude name="**/test/**"/>
+                                    </fileset>
                                 </move>
                             </target>
                         </configuration>
