@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>pdf-js</artifactId>
-    <version>0.8.1168</version>
+    <version>0.8.1170</version>
     <name>PDF.JS</name>
     <description>WebJar for PDF.JS</description>
     <url>http://webjars.org</url>
@@ -41,8 +41,8 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<upstreamVersion>0.8.1168</upstreamVersion>
-        <upstreamBuild>2c82e72</upstreamBuild>
+	<upstreamVersion>0.8.1170</upstreamVersion>
+        <upstreamBuild>c132a99</upstreamBuild>
         <sourceUrl>https://github.com/mozilla/pdf.js/tarball</sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
     </properties>
