@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>pdf-js</artifactId>
-    <version>0.8.1170-SNAPSHOT</version>
+    <version>0.8.1170</version>
     <name>PDF.JS</name>
     <description>WebJar for PDF.JS</description>
     <url>http://webjars.org</url>
@@ -28,7 +28,7 @@
         <url>http://github.com/webjars/pdf-js</url>
         <connection>scm:git:https://github.com/webjars/pdf-js.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/pdf-js.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>pdf-js-0.8.1170</tag>
     </scm>
 
     <developers>
@@ -81,7 +81,7 @@
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
                                     <fileset dir="${project.build.directory}/mozilla-pdf.js-${upstreamBuild}">
-                                        <exclude name="**/test/**"/>
+                                        <exclude name="**/test/**" />
                                     </fileset>
                                 </move>
                             </target>
