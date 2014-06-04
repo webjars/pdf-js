@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>pdf-js</artifactId>
-    <version>0.8.1171-SNAPSHOT</version>
+    <version>1.0.277-SNAPSHOT</version>
     <name>PDF.JS</name>
     <description>WebJar for PDF.JS</description>
     <url>http://webjars.org</url>
@@ -41,9 +41,8 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>0.8.1170</upstreamVersion>
-        <upstreamBuild>c132a99</upstreamBuild>
-        <sourceUrl>https://github.com/mozilla/pdf.js/tarball</sourceUrl>
+        <upstreamVersion>1.0.277</upstreamVersion>
+        <sourceUrl>https://github.com/mozilla/pdf.js/releases/download/v${upstreamVersion}</sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
     </properties>
 
@@ -59,8 +58,8 @@
                         <goals><goal>download-single</goal></goals>
                         <configuration>
                             <url>${sourceUrl}</url>
-                            <fromFile>${upstreamBuild}</fromFile>
-                            <toFile>${project.build.directory}/${project.artifactId}.tar.gz</toFile>
+                            <fromFile>pdfjs-${upstreamVersion}-dist.zip</fromFile>
+                            <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
                         </configuration>
                     </execution>
                 </executions>
@@ -76,14 +75,7 @@
                         <configuration>
                             <target>
                                 <echo message="unzip archive" />
-                                <gunzip src="${project.build.directory}/pdf-js.tar.gz" />
-                                <untar src="${project.build.directory}/pdf-js.tar" dest="${project.build.directory}" />
-                                <echo message="moving resources" />
-                                <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/mozilla-pdf.js-${upstreamBuild}">
-                                        <exclude name="**/test/**" />
-                                    </fileset>
-                                </move>
+                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${destDir}" />
                             </target>
                         </configuration>
                     </execution>
