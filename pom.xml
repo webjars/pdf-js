@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>pdf-js</artifactId>
-    <version>1.5.189-SNAPSHOT</version>
+    <version>1.5.188-1-SNAPSHOT</version>
     <name>PDF.JS</name>
     <description>WebJar for PDF.JS</description>
     <url>http://webjars.org</url>
@@ -44,6 +44,13 @@
         <upstreamVersion>1.5.188</upstreamVersion>
         <sourceUrl>https://github.com/mozilla/pdf.js/releases/download/v${upstreamVersion}</sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
+        <requirejs>
+            {
+                "paths": {
+                    "pdf-js": "build/pdf"
+                }
+            }
+        </requirejs>
     </properties>
 
     <build>
