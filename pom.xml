@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>pdf-js</artifactId>
-    <version>4.0.269-SNAPSHOT</version>
+    <version>4.0.269</version>
     <name>PDF.JS</name>
     <description>WebJar for PDF.JS</description>
     <url>http://webjars.org</url>
@@ -28,7 +28,7 @@
         <url>http://github.com/webjars/pdf-js</url>
         <connection>scm:git:https://github.com/webjars/pdf-js.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/pdf-js.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>pdf-js-4.0.269</tag>
     </scm>
 
     <developers>
